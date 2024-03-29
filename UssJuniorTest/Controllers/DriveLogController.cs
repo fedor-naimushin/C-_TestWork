@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using UssJuniorTest.Core;
 using UssJuniorTest.Core.Contracts;
 
 namespace UssJuniorTest.Controllers;
@@ -7,15 +8,22 @@ namespace UssJuniorTest.Controllers;
 [Route("api/driveLog")]
 public class DriveLogController : Controller
 {
-    public DriveLogController()
+    private readonly IDriveService driveService;
+    
+    public DriveLogController(IDriveService driveService)
     {
-        
+        this.driveService = driveService;
     }
     
     
     [HttpGet]
-    public async Task<IActionResult> GetDriveLogsAggregation([FromQuery] TimeRangeRequest timeRange)
+    public IActionResult GetDriveLogsAggregation([FromQuery] TimeRangeRequest request)
     {
-        return Ok($"Start: {timeRange.Start}. End: {timeRange.End}");
+        var response = driveService.GetDriveInfo(request);
+        
+        if (response.Count == 0)
+            return NotFound();
+
+        return Ok(response);
     }
 }
