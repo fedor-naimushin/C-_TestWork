@@ -1,4 +1,4 @@
-![image](https://github.com/fedor-naimushin/TestWork/assets/102856617/df0119a4-ec2f-4566-b649-c25968d879b8)# Процесс работы
+# Процесс работы
 
 Напишу немного про выполнение задания:
 ![image](https://github.com/fedor-naimushin/TestWork/assets/102856617/1e0b6932-81e6-4214-955f-65f875a3ba8e)
@@ -9,27 +9,5 @@ Start = 2024-03-09T14:00:00
 End = 2024-03-10T16:00:00
 
 # Пример выходных данных
-[
-  {
-    "person": {
-      "name": "Иванов",
-      "age": 35
-    },
-    "car": {
-      "manufacturer": "Toyota",
-      "model": "Camry"
-    },
-    "timeTravel": "02:11:00"
-  },
-  {
-    "person": {
-      "name": "Сидоров",
-      "age": 56
-    },
-    "car": {
-      "manufacturer": "ГАЗ",
-      "model": "ГАЗель"
-    },
-    "timeTravel": "03:01:00"
-  }
-]
+![image](https://github.com/fedor-naimushin/TestWork/assets/102856617/b8149833-8353-4d17-b2fd-16f517034fc2)
+
