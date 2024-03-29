@@ -4,7 +4,7 @@ namespace UssJuniorTest.Core.Contracts;
 
 public class DriveInfoResponse
 {
-    public Person Person { get; set; }
-    public Car Car { get; set; }
+    public PersonResponse Person { get; set; }
+    public CarResponse Car { get; set; }
     public TimeSpan TimeTravel { get; set; }
 }

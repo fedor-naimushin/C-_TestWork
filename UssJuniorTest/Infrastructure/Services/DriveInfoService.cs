@@ -1,6 +1,7 @@
 ﻿using UssJuniorTest.Core;
 using UssJuniorTest.Core.Contracts;
 using UssJuniorTest.Core.Models;
+using UssJuniorTest.Infrastructure.Mapping;
 
 namespace UssJuniorTest.Infrastructure.Services;
 
@@ -10,14 +11,18 @@ public class DriveInfoService : IDriveService
     private readonly IRepository<Person> persons;
     private readonly IRepository<DriveLog> driveLogs;
 
+    private readonly Mapper mapper;
+
     public DriveInfoService(
         IRepository<Car> cars,
         IRepository<Person> persons,
-        IRepository<DriveLog> driveLogs)
+        IRepository<DriveLog> driveLogs,
+        Mapper mapper)
     {
         this.cars = cars;
         this.persons = persons;
         this.driveLogs = driveLogs;
+        this.mapper = mapper;
     }
 
     public List<DriveInfoResponse> GetDriveInfo(TimeRangeRequest request)
@@ -30,11 +35,11 @@ public class DriveInfoService : IDriveService
                 request.End >= x.StartDateTime && request.Start <= x.StartDateTime
             )
             .ToList();
-
+        
         return needDriveLogs.Select(driveLog => new DriveInfoResponse
         {
-            Person = persons.Get(driveLog.PersonId),
-            Car = cars.Get(driveLog.CarId),
+            Person = mapper.MapPerson(persons.Get(driveLog.CarId)),
+            Car = mapper.MapCar(cars.Get(driveLog.CarId)),
             TimeTravel = driveLog.EndDateTime - driveLog.StartDateTime
         }).ToList();
     }
