@@ -40,7 +40,7 @@ public class DriveInfoService : IDriveService
         {
             Person = mapper.MapPerson(persons.Get(driveLog.CarId)),
             Car = mapper.MapCar(cars.Get(driveLog.CarId)),
-            TimeTravel = driveLog.EndDateTime - driveLog.StartDateTime
+            TimeTravel = (driveLog.EndDateTime - driveLog.StartDateTime).ToString(@"dd\:hh\:mm")
         }).ToList();
     }
 }

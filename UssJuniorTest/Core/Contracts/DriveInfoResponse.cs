@@ -6,5 +6,5 @@ public class DriveInfoResponse
 {
     public PersonResponse Person { get; set; }
     public CarResponse Car { get; set; }
-    public TimeSpan TimeTravel { get; set; }
+    public string TimeTravel { get; set; }
 }
